@@ -14,12 +14,7 @@ HISTFILESIZE=10000
 export GEM_HOME="$HOME/rubygems"
 export PATH="$HOME/rubygems/bin:$PATH"
 
-# For CS631 project
-# Edit: Instead of using environment variables, add the PGJDBC build in VSCode,
-# and run from VSC, which will use the appropriate command line options
-# export CLASSPATH=/home/abhijeetbodas2001/code/pgjdbc/pgjdbc/build/libs/postgresql-42.5.1-SNAPSHOT.jar:/home/abhijeetbodas2001/code/CS631-java-app
-
-# Check is fzf is installed. Only is yes, activate the keybindings
+# If fzf is installed, activate the keybindings
 if command -v fzf &> /dev/null
 then
 # Search bash history using fzf
@@ -51,10 +46,6 @@ fi
 
 
 
-# Use the starship prompt. Keep this line at the end
-# of the .bashrc
+# Use the starship prompt. Keep this line at the end of the .bashrc
 eval "$(starship init bash)"
 
-# Only comments here on.
-# !$ -> last argument of last command
-# !! -> the entire last command
