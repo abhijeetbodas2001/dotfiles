@@ -1,0 +1,8 @@
+/.config/*
+!/.config/dconf
+!/.config/keyd
+!/.config/mpv
+!/.config/newsboat
+!/.config/nvim
+!/.config/starship.toml
+

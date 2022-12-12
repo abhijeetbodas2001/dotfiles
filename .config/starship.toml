@@ -1,0 +1,28 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$python\
+$java\
+$character
+"""
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[x](bold red)"
+vicmd_symbol = "[<](bold green)"
+
+[directory]
+truncation_length = 2
+truncate_to_repo = false
+
+[git_branch]
+symbol = "branch:"
+
+[java]
+symbol = "java "
+
+[python]
+symbol = "py "
+format = "pyenv:[$virtualenv]($style)"

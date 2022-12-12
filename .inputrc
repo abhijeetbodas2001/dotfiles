@@ -1,0 +1,27 @@
+# Do not bell on tab-completion
+set bell-style none
+
+# Show possible completions using different colors to indicate filetypes
+set colored-stats on
+
+# Maximum number of characters of common prefix to display. Longer common prefixes replaced by ...
+set completion-prefix-display-length 5
+
+# Set tab completion to be case insensitive
+set completion-ignore-case on
+
+# Words which have more than one possible completion cause the matches to be listed
+# immediately instead of ringing the bell
+set show-all-if-ambiguous on
+
+# Words which have more than one possible completion without any possible partial completion
+# (the possible completions don't share a common prefix) cause the matches to be listed
+# immediately instead of ringing the bell
+set show-all-if-unmodified on
+
+# When vi mode is used for bash, show the current mode
+# (COMMAND/INSERT) before the prompt
+set show-mode-in-prompt on
+
+# Shortcut for clearing the terminal (also clears scroll-back!)
+C-L: clear-display

@@ -1,0 +1,11 @@
+[user]
+	name = Abhijeet Prasad Bodas
+	email = abhijeetbodas2001@gmail.com
+[core]
+    editor = nvim
+    # excludesFile = *.swp
+[alias]
+    pa = log --oneline -S   # Pickaxe
+    lol = log --oneline
+    s = status
+
