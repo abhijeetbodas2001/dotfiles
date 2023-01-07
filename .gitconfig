@@ -8,4 +8,5 @@
     pa = log --oneline -S   # Pickaxe
     lol = log --oneline
     s = status
+    ds = diff --stat
 
