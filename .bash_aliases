@@ -21,3 +21,5 @@ alias suu='sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo ap
 
 alias vim='nvim'
 alias n='nvim'
+
+alias jdate='echo "date: $(date "+%F %T") +5:30"'
