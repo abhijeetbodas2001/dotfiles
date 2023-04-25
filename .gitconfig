@@ -9,4 +9,6 @@
     lol = log --oneline
     s = status
     ds = diff --stat
+    rumi = rebase upstream/main
+    ruma = rebase upstream/master
 
