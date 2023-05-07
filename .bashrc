@@ -1,3 +1,23 @@
+# Command prompt
+light_green="\[\e[1;32m\]"
+light_red="\[\e[1;31m\]"
+yellow="\[\e[0;33m\]"
+gray="\[\e[0;37m\]"
+reset="\[\e[m\]"
+prompt_command() {
+  local status="$?"
+  local status_color=""
+  if [ $status != 0 ]; then
+    status_color=$light_red
+  else
+    status_color=$light_green
+  fi
+  export PS1="[${yellow}\w${reset}]${gray}${reset} ${status_color}\$${reset} "
+}
+export PROMPT_DIRTRIM=2
+export PROMPT_COMMAND=prompt_command
+
+
 # Source the aliases file if it exists
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -10,9 +30,10 @@ set -o vi
 HISTSIZE=10000
 HISTFILESIZE=10000
 
-# Install Ruby gems to ~/rubygems
+# Modifying the $PATH variable
 export GEM_HOME="$HOME/rubygems"
 export PATH="$HOME/rubygems/bin:$PATH"
+export PATH="$HOME/nvim/bin:$PATH"
 
 # If fzf is installed, activate the keybindings
 if command -v fzf &> /dev/null
@@ -43,9 +64,4 @@ __fzf_history__() {
 bind -m vi-command -x '"\C-r": __fzf_history__'
 bind -m vi-insert -x '"\C-r": __fzf_history__'
 fi
-
-
-
-# Use the starship prompt. Keep this line at the end of the .bashrc
-eval "$(starship init bash)"
 
