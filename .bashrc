@@ -16,11 +16,16 @@ prompt_command() {
 }
 export PROMPT_DIRTRIM=2
 export PROMPT_COMMAND=prompt_command
-
+# Command prompt end
 
 # Source the aliases file if it exists
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+# Source git command completions
+if [ -f /usr/share/bash-completion/completions/git ]; then
+    . /usr/share/bash-completion/completions/git
 fi
 
 # Use vi mode
@@ -33,7 +38,7 @@ HISTFILESIZE=10000
 # Modifying the $PATH variable
 export GEM_HOME="$HOME/rubygems"
 export PATH="$HOME/rubygems/bin:$PATH"
-export PATH="$HOME/nvim/bin:$PATH"
+export PATH="/var/lib/flatpak/exports/bin:$PATH"
 
 # If fzf is installed, activate the keybindings
 if command -v fzf &> /dev/null
@@ -64,4 +69,5 @@ __fzf_history__() {
 bind -m vi-command -x '"\C-r": __fzf_history__'
 bind -m vi-insert -x '"\C-r": __fzf_history__'
 fi
+# fzf code end
 

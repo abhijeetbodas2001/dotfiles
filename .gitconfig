@@ -2,8 +2,7 @@
 	name = Abhijeet Prasad Bodas
 	email = abhijeetbodas2001@gmail.com
 [core]
-    editor = nvim
-    # excludesFile = *.swp
+    editor = vim
 [alias]
     pa = log --oneline -S   # Pickaxe
     lol = log --oneline
@@ -11,4 +10,6 @@
     ds = diff --stat
     rumi = rebase upstream/main
     ruma = rebase upstream/master
-
+[difftool]
+    # Exit a file's diff by doing `:cq` to stop subsequent diffs from opening.
+    trustExitCode = true
