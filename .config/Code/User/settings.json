@@ -1,11 +1,11 @@
 {
-        "extensions.autoCheckUpdates": false,
-    "update.enableWindowsBackgroundUpdates": false,
-    "extensions.autoUpdate": false,
+    // remote SSH
     "remote.SSH.remotePlatform": {
         "19": "linux",
         "053": "linux"
     },
+
+    // UI customizations
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontFamily": "Delugia, monospace",
     "editor.fontFamily": "Delugia, monospace",
@@ -15,13 +15,6 @@
     "scm.inputFontFamily": "Delugia, monospace",
     "notebook.output.fontFamily": "Delugia, monospace",
     "chat.editor.fontFamily": "Delugia, monospace",
-    "editor.minimap.enabled": false,
-    "files.autoSave": "onFocusChange",
-    "editor.copyWithSyntaxHighlighting": false,
-    "diffEditor.renderSideBySide": false,
-    "python.languageServer": "Pylance",
-    "editor.lineNumbers": "relative",
-    "editor.cursorSurroundingLines": 50,
     "workbench.colorCustomizations": {
         "editor.lineHighlightBackground": "#484141",
         "editor.background": "#000000",
@@ -30,44 +23,36 @@
         "banner.background": "#000000",
         "tab.hoverBackground": "#000000",
       },
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "relative",
+    "workbench.activityBar.location": "hidden",
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Default Dark+",
+
+
+    // neovim plugin settings
+    "vscode-neovim.useCtrlKeysForNormalMode": false,
+    "vscode-neovim.useCtrlKeysForInsertMode": false,
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
+    },
+    "keyboard.dispatch": "keyCode",
+    "vscode-neovim.neovimClean": true,
+    "vscode-neovim.neovimExecutablePaths.linux": "nvim",
+
+
+    // language specific settings
+    "jupyter.askForKernelRestart": false,
+    "python.languageServer": "Pylance",
+    "python.analysis.completeFunctionParens": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "workbench.activityBar.visible": false,
-    "editor.fontSize": 15,
-    "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Default Dark+",
-    "jupyter.askForKernelRestart": false,
-    "notebook.confirmDeleteRunningCell": false,
-    "files.trimTrailingWhitespace": true,
-    "editor.minimap.enabled": false,
-    "diffEditor.renderSideBySide": false,
-    "files.autoSave": "onFocusChange",
-    "redhat.telemetry.enabled": false,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
-    },
-    "[cpp]": {
-        "editor.wordBasedSuggestions": "off",
-        "editor.suggest.insertMode": "replace",
-        "editor.semanticHighlighting.enabled": true,
-        "editor.formatOnType": true,
-        "editor.formatOnPaste": true,
-        "editor.formatOnSave": true,
-    },
-    "C_Cpp.formatting": "vcFormat",
-    "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
-    "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
-    "C_Cpp.vcFormat.space.insertAfterSemicolon": true,
-    "C_Cpp.vcFormat.space.afterComma": true,
-    "C_Cpp.vcFormat.newLine.beforeElse": false,
-    "C_Cpp.vcFormat.space.pointerReferenceAlignment": "right",  // `int *a` and `int &x`
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": false
     },
     "[yaml]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -75,30 +60,14 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "security.workspace.trust.untrustedFiles": "open",
-    "prettier.proseWrap": "always",
-    "editor.fontFamily": "'Delugia', monospace",
-    "keyboard.dispatch": "keyCode",
-    "open-in-vim.openMethod": "linux.gnome-terminal",
-    "[c]": {
-        "editor.defaultFormatter": "ms-vscode.cpptools"
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "vscode-neovim.neovimClean": true,
-    "vscode-neovim.neovimExecutablePaths.linux": "nvim",
-    "window.menuBarVisibility": "toggle",
-    "telemetry.telemetryLevel": "off",
-    "security.workspace.trust.banner": "never",
-    "security.workspace.trust.enabled": false,
-    "security.workspace.trust.emptyWindow": false,
-    "scm.diffDecorationsGutterPattern": {
-        "added": true
-    },
-    "diffEditor.codeLens": true,
-    "editor.lineNumbers": "relative",
-    "editor.cursorSurroundingLines": 100,
-    "black-formatter.args": [
-        "-l 100"
-    ],
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+
+    // spell checker extension
     "cSpell.userWords": [
         "abhijeetbodas",
         "casteist",
@@ -106,20 +75,24 @@
         "testcase",
         "testcases"
     ],
-    "[markdown]": {
-        "editor.formatOnSave": false
-    },
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "python.analysis.completeFunctionParens": true,
-    "workbench.activityBar.location": "hidden",
-    "vscode-neovim.useCtrlKeysForNormalMode": false,
-    "vscode-neovim.useCtrlKeysForInsertMode": false,
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+
+    // behaviour settings
+    "notebook.confirmDeleteRunningCell": false,
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "onFocusChange",
+    "editor.cursorSurroundingLines": 50,
+    "diffEditor.renderSideBySide": false,
+
+    // disable shit
+    "redhat.telemetry.enabled": false,
+    "extensions.autoCheckUpdates": false,
+    "update.enableWindowsBackgroundUpdates": false,
+    "extensions.autoUpdate": false,
+    "editor.copyWithSyntaxHighlighting": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "prettier.proseWrap": "always",
+    "telemetry.telemetryLevel": "off",
+    "security.workspace.trust.banner": "never",
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.emptyWindow": false,
 }
