@@ -14,5 +14,18 @@ do
     rsync -t ~/"$file" ~/code/dotfiles/
 done
 
-rsync -a --delete ~/.config/ ~/code/dotfiles/.config/
+mkdir -p .config/nvim
+cp ~/.config/nvim/init.lua .config/nvim
+cp -R ~/.config/nvim/autoload/ .config/nvim
+
+mkdir -p .config/Code/User/
+cp ~/.config/Code/User/{settings.json,keybindings.json} .config/Code/User/
+
+dconf dump / > ./gnome_settings # to restore, dconf load / < ./gnome_settings
+
+mkdir -p .config/mpv
+cp ~/.config/mpv/* .config/mpv/
+
+mkdir -p .config/ptpython
+cp ~/.config/ptpython/* .config/ptpython
 

@@ -1,7 +1,0 @@
-# Track only those which which I've modified
-/.config/*
-!/.config/dconf
-!/.config/keyd
-!/.config/mpv
-!/.config/nvim
-

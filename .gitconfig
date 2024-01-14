@@ -4,8 +4,12 @@
 [core]
     editor = vim
 [alias]
-    pa = log --oneline -S   # Pickaxe
-    lol = log --oneline
+    pa = log --oneline -S   # pa = Pick Axe
+    ll = log -L             # Line Log search
+    lol = log --oneline     # lol = Log, One Line
+    lg = log --decorate --oneline --graph --boundary --branches HEAD --tags   # lg = Log, Graph
+    lib = log --oneline origin/master..HEAD     # lib = Log, In Branch
+    ai = add -i     # ai = Add, Interactive
     s = status
     ds = diff --stat
     rumi = rebase upstream/main
@@ -13,3 +17,11 @@
 [difftool]
     # Exit a file's diff by doing `:cq` to stop subsequent diffs from opening.
     trustExitCode = true
+
+
+# Notes
+# `git reset --soft HEAD~` -> HEAD moves back
+# `git reset --mixed HEAD~` -> HEAD, and index moves back
+# `git reset --hard HEAD~` -> HEAD, index, and working directory moves back
+# If path is specified, the HEAD is not moved (only index and working directory affected)
+# reset changes reference (REF, what the branch name points to), while checkout only changes the HEAD

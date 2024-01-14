@@ -1,0 +1,81 @@
+{
+    "editor.minimap.enabled": false,
+    "diffEditor.renderSideBySide": false,
+    "files.autoSave": "onFocusChange",
+    "redhat.telemetry.enabled": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "[cpp]": {
+        "editor.wordBasedSuggestions": "off",
+        "editor.suggest.insertMode": "replace",
+        "editor.semanticHighlighting.enabled": true,
+        "editor.formatOnType": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+    },
+    "C_Cpp.formatting": "vcFormat",
+    "C_Cpp.vcFormat.newLine.beforeOpenBrace.block": "sameLine",
+    "C_Cpp.vcFormat.newLine.beforeOpenBrace.function": "sameLine",
+    "C_Cpp.vcFormat.space.insertAfterSemicolon": true,
+    "C_Cpp.vcFormat.space.afterComma": true,
+    "C_Cpp.vcFormat.newLine.beforeElse": false,
+    "C_Cpp.vcFormat.space.pointerReferenceAlignment": "right",  // `int *a` and `int &x`
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "prettier.proseWrap": "always",
+    "editor.fontFamily": "'Delugia', monospace",
+    "keyboard.dispatch": "keyCode",
+    "open-in-vim.openMethod": "linux.gnome-terminal",
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "vscode-neovim.neovimClean": true,
+    "vscode-neovim.neovimExecutablePaths.linux": "nvim",
+    "window.menuBarVisibility": "toggle",
+    "telemetry.telemetryLevel": "off",
+    "security.workspace.trust.banner": "never",
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.emptyWindow": false,
+    "scm.diffDecorationsGutterPattern": {
+        "added": true
+    },
+    "diffEditor.codeLens": true,
+    "editor.lineNumbers": "relative",
+    "editor.cursorSurroundingLines": 100,
+    "black-formatter.args": [
+        "-l 100"
+    ],
+    "cSpell.userWords": [
+        "abhijeetbodas",
+        "casteist",
+        "IITB",
+        "testcase",
+        "testcases"
+    ],
+    "[markdown]": {
+        "editor.formatOnSave": false
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "python.analysis.completeFunctionParens": true,
+    "workbench.activityBar.location": "hidden",
+    "vscode-neovim.useCtrlKeysForNormalMode": false,
+    "vscode-neovim.useCtrlKeysForInsertMode": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}

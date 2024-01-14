@@ -1,12 +1,6 @@
 " Gvim specific settings
 set guifont=Cascadia_Code:h12:cANSI:qDRAFT
 
-" colorscheme
-colorscheme desert
-
-" Setting a high scrolloff value effectively centers the cursor
-set scrolloff=1000
-
 " Cursor: thin line in insert, block in normal mode
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
@@ -50,6 +44,9 @@ set autoindent
 " Allow backspacing to work as expected.
 set backspace=indent,eol,start
 
+" Do not let cursor scroll below or above N number of lines when scrolling.
+set scrolloff=10
+
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
 " Ignore capital letters during search.
@@ -77,6 +74,7 @@ set showmode
 " Set the commands to save in history default number is 20.
 set history=1000
 
-" Keymaps
-    " Insert timestamp on current line, start writing on the line below
-    nnoremap <leader>t :r! date "+\%F \%T"<CR>I#<space><esc>o
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
