@@ -1,3 +1,8 @@
+###############################################################################################
+# COMMON THINGS
+
+export TZ="Asia/Kolkata"
+
 # Command prompt
 light_green="\[\e[1;32m\]"
 light_red="\[\e[1;31m\]"
@@ -26,11 +31,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Source git command completions
-if [ -f /usr/share/bash-completion/completions/git ]; then
-    . /usr/share/bash-completion/completions/git
-fi
-
 # Use vi mode
 set -o vi
 
@@ -44,6 +44,14 @@ HISTFILESIZE=100000000000000000
 
 HISTCONTROL=$HISTCONTROL:ignoredups
 
+##########################################################################################
+# LAPTOP ONLY THINGS
+
+# Source git command completions
+if [ -f /usr/share/bash-completion/completions/git ]; then
+    . /usr/share/bash-completion/completions/git
+fi
+
 # Modifying the $PATH variable
 export GEM_HOME="$HOME/rubygems"
 export PATH="$HOME/rubygems/bin:$PATH"
@@ -54,9 +62,3 @@ eval "$(rbenv init -)"
 
 # Enable fzf keybindings
 source /usr/share/doc/fzf/examples/key-bindings.bash
-## File preview
-# Preview file content using bat (https://github.com/sharkdp/bat)
-export FZF_CTRL_T_OPTS="
-  --preview 'less {}'
-  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-. "$HOME/.cargo/env"
