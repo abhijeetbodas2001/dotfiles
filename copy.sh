@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-
-# Before committing, run this script to copy changes
-# made to the actual dotfiles into the dotfiles repo
 for file in\
     ".bashrc"\
     ".bash_aliases"\
@@ -11,21 +7,21 @@ for file in\
     ".vimrc"
 do
     echo $file
-    rsync -t ~/"$file" ~/code/dotfiles/
+    cp $FROM/$file $TO/
 done
 
-mkdir -p .config/nvim
-cp ~/.config/nvim/init.lua .config/nvim
-cp -R ~/.config/nvim/autoload/ .config/nvim
+mkdir -p $TO/.config/nvim
+cp $FROM/.config/nvim/init.lua $TO/.config/nvim
+cp -R $FROM/.config/nvim/autoload/ $TO/.config/nvim
 
-mkdir -p .config/Code/User/
-cp ~/.config/Code/User/{settings.json,keybindings.json} .config/Code/User/
+mkdir -p $TO/.config/Code/User/
+cp $FROM/.config/Code/User/{settings.json,keybindings.json} $TO/.config/Code/User/
 
 dconf dump / > ./gnome_settings # to restore, dconf load / < ./gnome_settings
 
-mkdir -p .config/mpv
-cp ~/.config/mpv/* .config/mpv/
+mkdir -p $TO/.config/mpv
+cp $FROM/.config/mpv/* $TO/.config/mpv/
 
-mkdir -p .config/ptpython
-cp ~/.config/ptpython/* .config/ptpython
+mkdir -p $TO/.config/ptpython
+cp $FROM/.config/ptpython/* $TO/.config/ptpython
 
