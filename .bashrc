@@ -1,6 +1,5 @@
-###############################################################################################
-# COMMON THINGS
-
+# ===============================================================================================================================================
+# COMMON
 export TZ="Asia/Kolkata"
 
 # Command prompt
@@ -23,9 +22,6 @@ export PROMPT_DIRTRIM=2
 export PROMPT_COMMAND=prompt_command
 # Command prompt end
 
-# Make sound input work
-amixer set "Capture" 25% > /dev/null
-
 # Source the aliases file if it exists
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -34,18 +30,20 @@ fi
 # Use vi mode
 set -o vi
 
-# Update bash history in realtime (useful when multiple terminals open)
+# Make concurrent bash history updates work correctly
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 # Save more history
-HISTSIZE=1000000000000000
-HISTFILESIZE=100000000000000000
-
+HISTSIZE=1000000000
+HISTFILESIZE=100000000
 HISTCONTROL=$HISTCONTROL:ignoredups
 
 ##########################################################################################
-# LAPTOP ONLY THINGS
+# LAPTOP ONLY
+
+# Make sound input work
+amixer set "Capture" 25% > /dev/null
 
 # Source git command completions
 if [ -f /usr/share/bash-completion/completions/git ]; then
