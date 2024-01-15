@@ -1,4 +1,4 @@
-set guifont=Cascadia_Code:h12:cANSI:qDRAFT
+set guifont=Delugia_Mono:h12
 
 " Cursor: thin line in insert, block in normal mode
 let &t_SI = "\e[6 q"
