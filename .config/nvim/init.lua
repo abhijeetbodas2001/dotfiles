@@ -29,20 +29,20 @@ set history=1000
 set mouse=
 
 call plug#begin('~/.config/nvim/plugins')
-Plug '~/.config/nvim/plugins/telescope.nvim'
-Plug '~/.config/nvim/plugins/plenary.nvim'
-Plug '~/.config/nvim/plugins/gitsigns.nvim'
-Plug '~/.config/nvim/plugins/autosave.nvim'
-Plug '~/.config/nvim/plugins/treesitter.nvim'
-Plug '~/.config/nvim/plugins/nvim-lspconfig-master'
-Plug '~/.config/nvim/plugins/onedark.nvim-master'
-Plug '~/.config/nvim/plugins/mini.nvim-0.11.0'
+Plug 'https://github.com/nvim-telescope/telescope.nvim'
+Plug 'https://github.com/nvim-lua/plenary.nvim'
+Plug 'https://github.com/lewis6991/gitsigns.nvim'
+Plug 'https://github.com/0x00-ketsu/autosave.nvim'
+Plug 'https://github.com/nvim-treesitter/nvim-treesitter'
+Plug 'https://github.com/neovim/nvim-lspconfig'
+Plug 'https://github.com/navarasu/onedark.nvim'
+Plug 'https://github.com/echasnovski/mini.nvim'
 call plug#end()
 ]])
 
-vim.treesitter.language.add('python', { path = "/home/bodaab/.config/nvim/TSInstall/python.so" })
-vim.treesitter.language.add('bash', { path = "/home/bodaab/.config/nvim/TSInstall/bash.so" })
-vim.treesitter.language.add('markdown', { path = "/home/bodaab/.config/nvim/TSInstall/markdown.so" })
+vim.treesitter.language.add('python')
+vim.treesitter.language.add('bash')
+vim.treesitter.language.add('markdown')
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
@@ -149,7 +149,6 @@ require('mini.files').setup()
 vim.keymap.set('n', '<leader>e', MiniFiles.open, {})    -- explorer
 
 require('mini.sessions').setup({
-    autoread = true,
     autowrite = true,
 })
 vim.keymap.set('n', '<leader>s', MiniSessions.select, {})
