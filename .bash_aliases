@@ -11,7 +11,8 @@ alias suu='sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo ap
 # luc = Last Updated C++ (file)
 luc() {
     if [[ "$PWD" == /home/apb/code/dsa/codeforces ]]; then
-        clang++ -std=c++17 -fsanitize=address $(ls -alt | grep \.cpp | rev | cut --delimiter=\  --fields=1 | rev | head -n1) && ./a.out
+        clang-format -i *.cpp -style=file
+        clang++ -std=c++20 $(ls -alt | grep \.cpp | rev | cut --delimiter=\  --fields=1 | rev | head -n1) && ./a.out
     else
         echo "luc should be run only from /code/dsa/codeforces"
     fi
