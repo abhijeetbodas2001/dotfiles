@@ -43,6 +43,7 @@ call plug#end()
 vim.treesitter.language.add('python')
 vim.treesitter.language.add('bash')
 vim.treesitter.language.add('markdown')
+vim.treesitter.language.add('java')
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
