@@ -133,8 +133,9 @@ require('telescope').setup({
     },
 })
 telescope_builtin = require('telescope.builtin')
-vim.keymap.set('n', '<c-p>', telescope_builtin.find_files, {})  -- like VSCode
+vim.keymap.set('n', '<c-p>', telescope_builtin.find_files, {})  -- fuzzy find files
 vim.keymap.set('n', '<c-g>', telescope_builtin.live_grep, {})   -- grep
+vim.keymap.set('n', '<c-f>', telescope_builtin.grep_string, {})   -- grep for word under cursor
 vim.keymap.set('n', '<leader>gs', telescope_builtin.git_status, {}) -- git status
 vim.keymap.set('n', '<leader>gc', telescope_builtin.git_commits, {})    -- git commits
 vim.keymap.set('n', '<leader>lr', telescope_builtin.lsp_references, {})    -- LSP references
@@ -153,11 +154,7 @@ require('mini.sessions').setup({
 })
 vim.keymap.set('n', '<leader>s', MiniSessions.select, {})
 
-autosave = require('autosave')
-autosave.hook_after_saving = function ()
-    MiniSessions.write()
-end
-autosave.setup()
+require('autosave').setup()
 
 require('mini.tabline').setup()
 require('mini.comment').setup() -- Comment/uncomment code (gcc, gc in visual)
@@ -175,6 +172,12 @@ require('mini.statusline').setup() -- Status line at bottom
 require('mini.ai').setup() -- better "around" and "in" motions (`a` for function argument, `f` for function call etc)
 require('mini.trailspace').setup() -- highlight trailing whitespace
 require('mini.splitjoin').setup() -- split and join function arguments
+require('mini.starter').setup() -- start screen
+
+local mini_jump = require('mini.jump2d')
+mini_jump.setup({
+    spotter = mini_jump.gen_pattern_spotter('[%w_]+')   -- hints at the start of words (words can include underscore)
+})
 
 -- Key bindings (plugin-independent)
 vim.cmd([[
