@@ -70,6 +70,7 @@ vim.cmd([[colorscheme onedark]])
 require('lspconfig').pyright.setup({
   capabilities = vim.lsp.protocol.make_client_capabilities(),
 })
+require('lspconfig').clangd.setup({})
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
@@ -183,6 +184,7 @@ mini_jump.setup({
 -- Key bindings (plugin-independent)
 vim.cmd([[
 nnoremap <leader>t :r! date "+\%F \%T"<CR>I#<space><esc>o
+nnoremap <leader>T :r! date "+\%F \%T"<CR>I###<space><esc>o<CR>
 nnoremap <leader>h :nohlsearch<CR>
 
 nnoremap <leader>w :bd<CR>

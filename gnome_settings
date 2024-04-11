@@ -101,16 +101,16 @@ video-x-resolution=960
 video-y-resolution=540
 
 [org/gnome/clocks]
-timers=[{'duration': <6300>, 'name': <''>}]
+timers=[{'duration': <600>, 'name': <''>}]
 
 [org/gnome/clocks/state/window]
 maximized=false
-panel-id='world'
+panel-id='timer'
 size=(870, 690)
 state=87168
 
 [org/gnome/control-center]
-last-panel='wifi'
+last-panel='mouse'
 window-state=(800, 600, true)
 
 [org/gnome/desktop/a11y/applications]
@@ -255,7 +255,7 @@ numlock-state=false
 natural-scroll=false
 
 [org/gnome/desktop/peripherals/touchpad]
-speed=-0.17647058823529416
+speed=-0.037433155080213942
 tap-to-click=true
 two-finger-scrolling-enabled=true
 
@@ -304,7 +304,7 @@ background-color='rgb(0,0,0)'
 use-background-color=true
 
 [org/gnome/evince/default]
-window-ratio=(1.6127946127946129, 1.2351543942992873)
+window-ratio=(1.6126864668727319, 1.2353157775956478)
 
 [org/gnome/evolution-data-server]
 migrated=true
@@ -441,6 +441,9 @@ smoothing=0
 [org/gnome/nautilus/compression]
 default-compression-format='zip'
 
+[org/gnome/nautilus/icon-view]
+default-zoom-level='extra-large'
+
 [org/gnome/nautilus/list-view]
 default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'recency', 'starred', 'detailed_type']
 default-visible-columns=['name', 'size', 'date_modified', 'date_modified_with_time']
@@ -530,7 +533,7 @@ download-updates-notify=false
 first-run=false
 install-timestamp=int64 1696613181
 online-updates-timestamp=int64 1696584547
-update-notification-timestamp=int64 1705224541
+update-notification-timestamp=int64 1712757765
 
 [org/gnome/solitaire/window-state]
 fullscreen=false
