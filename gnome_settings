@@ -172,7 +172,7 @@ toolbar-style='text'
 toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-nautilus', 'firefox-esr', 'org-gnome-software', 'gnome-power-panel', 'net-lutris-lutris', 'org-gnome-gedit', 'org-gnome-clocks', 'telegramdesktop', 'mpv', 'gnome-network-panel', 'thunderbird', 'org-gnome-terminal', 'org-gnome-settings', 'org-gnome-characters', 'org-telegram-desktop', 'calibre-gui', 'org-gnome-eog', 'code', 'org-gnome-extensions-desktop', 'vlc', 'libreoffice-writer', 'freetube', 'google-chrome', 'firefox']
+application-children=['org-gnome-nautilus', 'firefox-esr', 'org-gnome-software', 'gnome-power-panel', 'net-lutris-lutris', 'org-gnome-gedit', 'org-gnome-clocks', 'telegramdesktop', 'mpv', 'gnome-network-panel', 'thunderbird', 'org-gnome-terminal', 'org-gnome-settings', 'org-gnome-characters', 'org-telegram-desktop', 'calibre-gui', 'org-gnome-eog', 'code', 'org-gnome-extensions-desktop', 'vlc', 'libreoffice-writer', 'freetube', 'google-chrome', 'firefox', 'wfica']
 show-banners=true
 
 [org/gnome/desktop/notifications/application/calibre-gui]
@@ -247,6 +247,9 @@ enable=true
 
 [org/gnome/desktop/notifications/application/vlc]
 application-id='vlc.desktop'
+
+[org/gnome/desktop/notifications/application/wfica]
+application-id='wfica.desktop'
 
 [org/gnome/desktop/peripherals/keyboard]
 numlock-state=false

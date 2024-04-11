@@ -6,6 +6,7 @@ alias nv="nvim"
 alias nvc="nvim --clean"
 alias f="vifm"
 alias suu='sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt autoclean'
+alias python='python3'
 
 # Compile and run last updated C++ file
 # luc = Last Updated C++ (file)

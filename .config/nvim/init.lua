@@ -192,4 +192,9 @@ nnoremap <c-j> :bp<CR>
 nnoremap <c-k> :bn<CR>
 tnoremap <c-j> <c-\><c-N>:bp<CR>
 tnoremap <c-k> <c-\><c-N>:bn<CR>
+
+" Run Python test
+" Working: copies the Unittest class name in register-c, the method name in register-m and the
+" relative path of the test file in register-f. Contructs to pytest command and runs it.
+nnoremap <leader>T ?def <CR>w"myw?class <CR>w"cyw:let @f = expand("%")<CR>:nohlsearch<CR>:!pytest <C-r>f::<C-r>c::<C-r>m<CR>
 ]])
