@@ -1,28 +1,17 @@
-##############################################################################
-# LAPTOP SPECIFIC
 [user]
 	name = Abhijeet Prasad Bodas
 	email = abhijeetbodas2001@gmail.com
-########################################################################################
-# COMMON
 [core]
     editor = vim
     pager = delta
 
 [alias]
     pa = log --oneline -S   # pa = Pick Axe
-    ll = log -L             # ll = Line Log search. Example: `git log -L :git_deflate_bound:zlib.c` to search for funtion git_deflate_bound in file zlib.c
     lol = log --oneline     # lol = Log, One Line
     lg = log --decorate --oneline --graph --boundary --branches HEAD --tags    # lot = Log, Graph
-    lib = log --oneline origin/master..HEAD     # lib = Log, In Branch
-    ai = add -i     # ai = Add, Interactive
-    cli = clean -X -d -i    # cui = CLean, Ignored (interactive mode)
-    clu = clean -d -i    # cui = CLean, Untracked (interactive mode)
     s = status
     dst = diff --stat
     dsg = diff --staged
-    rumi = rebase upstream/main
-    ruma = rebase upstream/master
 [credential]
         helper = store
 
@@ -57,10 +46,3 @@
     merge-conflict-theirs-diff-header-style = yellow bold
     merge-conflict-theirs-diff-header-decoration-style = "#3e3e43" box
 
-
-# Notes
-# `git reset --soft HEAD~` -> HEAD moves back
-# `git reset --mixed HEAD~` -> HEAD, and index moves back
-# `git reset --hard HEAD~` -> HEAD, index, and working directory moves back (DANGEROUS)
-# If path is specified, then HEAD is not moved (only index and working directory affected)
-# reset changes reference (REF, what the branch name points to), while checkout only changes the HEAD
