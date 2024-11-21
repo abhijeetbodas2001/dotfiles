@@ -1,0 +1,4 @@
+Dotfiles, managed using GNU Stow.
+
+stow -t ~ nvim
+

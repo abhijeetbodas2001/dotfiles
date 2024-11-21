@@ -1,0 +1,66 @@
+##############################################################################
+# LAPTOP SPECIFIC
+[user]
+	name = Abhijeet Prasad Bodas
+	email = abhijeetbodas2001@gmail.com
+########################################################################################
+# COMMON
+[core]
+    editor = vim
+    pager = delta
+
+[alias]
+    pa = log --oneline -S   # pa = Pick Axe
+    ll = log -L             # ll = Line Log search. Example: `git log -L :git_deflate_bound:zlib.c` to search for funtion git_deflate_bound in file zlib.c
+    lol = log --oneline     # lol = Log, One Line
+    lg = log --decorate --oneline --graph --boundary --branches HEAD --tags    # lot = Log, Graph
+    lib = log --oneline origin/master..HEAD     # lib = Log, In Branch
+    ai = add -i     # ai = Add, Interactive
+    cli = clean -X -d -i    # cui = CLean, Ignored (interactive mode)
+    clu = clean -d -i    # cui = CLean, Untracked (interactive mode)
+    s = status
+    dst = diff --stat
+    dsg = diff --staged
+    rumi = rebase upstream/main
+    ruma = rebase upstream/master
+[credential]
+        helper = store
+
+[delta]
+    dark = true
+    line-numbers = true
+    file-style = brightwhite
+    file-decoration-style = none
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    hunk-header-decoration-style = "#3e3e43" box ul
+    plus-style = green black
+    plus-emph-style = black brightgreen
+    minus-style = brightred black
+    minus-emph-style = black red
+    line-numbers-minus-style = brightred
+    line-numbers-plus-style = brightgreen
+    line-numbers-left-style = "#3e3e43"
+    line-numbers-right-style = "#3e3e43"
+    line-numbers-zero-style = "#57575f"
+    zero-style = syntax
+    whitespace-error-style = black bold
+    blame-code-style = syntax
+    blame-palette = "#161617" "#1b1b1d" "#2a2a2d" "#3e3e43"
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-style = yellow bold
+    merge-conflict-ours-diff-header-decoration-style = "#3e3e43" box
+    merge-conflict-theirs-diff-header-style = yellow bold
+    merge-conflict-theirs-diff-header-decoration-style = "#3e3e43" box
+
+
+# Notes
+# `git reset --soft HEAD~` -> HEAD moves back
+# `git reset --mixed HEAD~` -> HEAD, and index moves back
+# `git reset --hard HEAD~` -> HEAD, index, and working directory moves back (DANGEROUS)
+# If path is specified, then HEAD is not moved (only index and working directory affected)
+# reset changes reference (REF, what the branch name points to), while checkout only changes the HEAD

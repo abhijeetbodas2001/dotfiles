@@ -1,0 +1,108 @@
+{
+    // remote SSH
+    "remote.SSH.remotePlatform": {
+        "19": "linux",
+        "053": "linux"
+    },
+
+    // UI customizations
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontFamily": "Delugia, monospace",
+    "editor.fontFamily": "Delugia, monospace",
+    "editor.codeLensFontFamily": "Delugia, monospace",
+    "editor.inlayHints.fontFamily": "Delugia, monospace",
+    "debug.console.fontFamily": "Delugia, monospace",
+    "scm.inputFontFamily": "Delugia, monospace",
+    "notebook.output.fontFamily": "Delugia, monospace",
+    "chat.editor.fontFamily": "Delugia, monospace",
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#484141",
+        "editor.background": "#000000",
+        "sideBar.background": "#000000",
+        "badge.background": "#000000",
+        "banner.background": "#000000",
+        "tab.hoverBackground": "#000000",
+      },
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "relative",
+    "workbench.activityBar.location": "hidden",
+    "workbench.colorTheme": "Default Dark+",
+
+
+    // neovim plugin settings
+    "vscode-neovim.useCtrlKeysForNormalMode": false,
+    "vscode-neovim.useCtrlKeysForInsertMode": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "keyboard.dispatch": "keyCode",
+    "vscode-neovim.neovimClean": true,
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
+
+
+    // language specific settings
+    "jupyter.askForKernelRestart": false,
+    "python.languageServer": "Pylance",
+    "python.analysis.completeFunctionParens": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.autoClosingBrackets": "never"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // spell checker extension
+    "cSpell.userWords": [
+        "abhijeetbodas",
+        "casteist",
+        "IITB",
+        "testcase",
+        "testcases"
+    ],
+
+    // behaviour settings
+    "notebook.confirmDeleteRunningCell": false,
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "onFocusChange",
+    "diffEditor.renderSideBySide": false,
+
+    // disable shit
+    "redhat.telemetry.enabled": false,
+    "extensions.autoCheckUpdates": false,
+    "update.enableWindowsBackgroundUpdates": false,
+    "extensions.autoUpdate": false,
+    "editor.copyWithSyntaxHighlighting": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "prettier.proseWrap": "always",
+    "telemetry.telemetryLevel": "off",
+    "security.workspace.trust.banner": "never",
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.emptyWindow": false,
+    "window.menuBarVisibility": "toggle",
+    "python.defaultInterpreterPath": "/home/apb/code/dev-venv/bin/python",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "clangd.path": "clangd-18",
+    "makefile.configureOnOpen": false,
+    "editor.stickyScroll.enabled": false,
+    "vscode-neovim.ctrlKeysForInsertMode": [],
+    "extensions.ignoreRecommendations": true,
+    "rust-analyzer.testExplorer": true,
+    "update.mode": "none",
+    "editor.autoClosingQuotes": "never",
+}

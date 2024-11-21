@@ -1,0 +1,6 @@
+C-L: clear-display
+set bell-style none
+set completion-prefix-display-length 5
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
