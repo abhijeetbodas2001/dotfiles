@@ -43,12 +43,29 @@ vnoremap <leader>gw "ey:grep<space><c-r>e
 " keybinds to move between items in quickfix list
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
-
-" Other Keymaps
+" insert current timestamp, start writing on next line (for taking notes)
+" in = Insert (timestamp for) Notes
+nnoremap <leader>in :r! date "+\%F \%T \%a"<CR>I#<space><esc>o
+" prepend timestamp to current line (for writing todos)
+" it = Insert Timestamp
+nnoremap <leader>it I<c-r>=strftime('%Y%m%d %H:%M')<CR><space>\|<space>
 " sh = Set (or unset) Highlights off
 nnoremap <leader>sh :nohlsearch<CR>
 " cp = Copy, for Pasting outside
 nnoremap <leader>cp gg0"+yG
+" jump between window splits
+nnoremap <c-h> <c-w><c-h>
+nnoremap <c-j> <c-w><c-j>
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-l> <c-w><c-l>
+" go to normal mode when in terminal mode
+tnoremap <esc><esc> <c-\><c-N>
+" enable "copy mode"
+" sc = Settings Copy
+nnoremap <leader>sc :set nonumber<CR>:set norelativenumber<CR>:set mouse=<CR>
+" disable "copy mode"
+" sc = Settings Copy (disable)
+nnoremap <leader>sc :set number<CR>:set relativenumber<CR>:set mouse=a<CR>
 
 call plug#begin()
 Plug 'https://github.com/nvim-telescope/telescope.nvim'
@@ -63,10 +80,25 @@ Plug 'https://github.com/theprimeagen/vim-be-good'
 call plug#end()
 ]])
 
+-- Auto commands
+vim.api.nvim_create_autocmd('TextYankPost', {
+    desc = "Highlight text which was yanked",
+    group = vim.api.nvim_create_augroup("test", {clear=false}),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+vim.api.nvim_create_autocmd({"BuffWritePre"}, {
+    desc = "Remove trailing whitespace before saving",
+    pattern = {"*"},
+    command = [[%s/\s\+$\\e]],
+})
+
 vim.treesitter.language.add('python')
 vim.treesitter.language.add('bash')
 vim.treesitter.language.add('markdown')
 vim.treesitter.language.add('lua')
+vim.treesitter.language.add('java')
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
