@@ -43,7 +43,12 @@ vnoremap <leader>gw "ey:grep<space><c-r>e
 " keybinds to move between items in quickfix list
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
-" collections
+
+" Other Keymaps
+" sh = Set (or unset) Highlights off
+nnoremap <leader>sh :nohlsearch<CR>
+" cp = Copy, for Pasting outside
+nnoremap <leader>cp gg0"+yG
 
 call plug#begin()
 Plug 'https://github.com/nvim-telescope/telescope.nvim'
@@ -61,8 +66,7 @@ call plug#end()
 vim.treesitter.language.add('python')
 vim.treesitter.language.add('bash')
 vim.treesitter.language.add('markdown')
-vim.treesitter.language.add('c')
-vim.treesitter.language.add('cpp')
+vim.treesitter.language.add('lua')
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
@@ -88,9 +92,6 @@ vim.cmd([[colorscheme onedark]])
 
 require('lspconfig').pyright.setup({
   capabilities = vim.lsp.protocol.make_client_capabilities(),
-})
-require('lspconfig').clangd.setup({
-    cmd = {'clangd-18'}
 })
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -149,7 +150,7 @@ require('telescope').setup({
     },
 })
 telescope_builtin = require('telescope.builtin')
-vim.keymap.set('n', '<c-p>', telescope_builtin.find_files, {})  -- fuzzy find files
+vim.keymap.set('n', '<leader>tp', telescope_builtin.find_files, {})  -- fuzzy find files
 vim.keymap.set('n', '<leader>tg', telescope_builtin.live_grep, {})   -- grep
 vim.keymap.set('n', '<leader>tw', telescope_builtin.grep_string, {})   -- grep for word under cursor
 vim.keymap.set('n', '<leader>gs', telescope_builtin.git_status, {}) -- git status
@@ -164,20 +165,9 @@ vim.keymap.set('n', '<leader>lb', partial_func(telescope_builtin.lsp_document_sy
 
 require('autosave').setup()
 
+-- mini plugin config
 require('mini.comment').setup() -- Comment/uncomment code (gcc, gc in visual)
 require('mini.fuzzy').setup()
-
 require('mini.cursorword').setup() -- Automatic highlighting of word under cursor
 require('mini.trailspace').setup() -- highlight trailing whitespace
 
--- Key bindings (plugin-independent)
-vim.cmd([[
-nnoremap <leader>sh :nohlsearch<CR>
-
-nnoremap <c-j> :bp<CR>
-nnoremap <c-k> :bn<CR>
-tnoremap <c-j> <c-\><c-N>:bp<CR>
-tnoremap <c-k> <c-\><c-N>:bn<CR>
-nnoremap <leader>cp gg0"+yG
-
-]])
