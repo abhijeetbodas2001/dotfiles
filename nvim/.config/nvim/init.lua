@@ -54,10 +54,10 @@ nnoremap <leader>sh :nohlsearch<CR>
 " cp = Copy, for Pasting outside
 nnoremap <leader>cp gg0"+yG
 " jump between window splits
-nnoremap <c-h> <c-w><c-h>
-nnoremap <c-j> <c-w><c-j>
-nnoremap <c-k> <c-w><c-k>
-nnoremap <c-l> <c-w><c-l>
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 " go to normal mode when in terminal mode
 tnoremap <esc><esc> <c-\><c-N>
 " enable "copy mode"
@@ -65,7 +65,15 @@ tnoremap <esc><esc> <c-\><c-N>
 nnoremap <leader>sc :set nonumber<CR>:set norelativenumber<CR>:set mouse=<CR>
 " disable "copy mode"
 " sc = Settings Copy (disable)
-nnoremap <leader>sc :set number<CR>:set relativenumber<CR>:set mouse=a<CR>
+nnoremap <leader>sC :set number<CR>:set relativenumber<CR>:set mouse=a<CR>
+
+" Format current file
+autocmd FileType python nnoremap <buffer> <leader>f :!ruff format %<CR>
+autocmd FileType markdown nnoremap <buffer> <leader>f :!mdformat --wrap 80 %<CR>
+
+" Run / execute current file
+autocmd FileType python nnoremap <buffer> <leader>e :!LOCAL=1 python % <CR>
+
 
 call plug#begin()
 Plug 'https://github.com/nvim-telescope/telescope.nvim'
@@ -79,6 +87,8 @@ Plug 'https://github.com/echasnovski/mini.nvim'
 Plug 'https://github.com/theprimeagen/vim-be-good'
 call plug#end()
 ]])
+
+
 
 -- Auto commands
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -125,6 +135,7 @@ vim.cmd([[colorscheme onedark]])
 require('lspconfig').pyright.setup({
   capabilities = vim.lsp.protocol.make_client_capabilities(),
 })
+require'lspconfig'.clangd.setup{}
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)

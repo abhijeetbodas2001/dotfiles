@@ -95,9 +95,9 @@
     "security.workspace.trust.enabled": false,
     "security.workspace.trust.emptyWindow": false,
     "window.menuBarVisibility": "toggle",
-    "python.defaultInterpreterPath": "/home/apb/code/dev-venv/bin/python",
+    "python.defaultInterpreterPath": "~/code/.venv/bin/python",
     "C_Cpp.intelliSenseEngine": "disabled",
-    "clangd.path": "clangd-18",
+    "clangd.path": "/home/apb/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/19.1.2/clangd_19.1.2/bin/clangd",
     "makefile.configureOnOpen": false,
     "editor.stickyScroll.enabled": false,
     "vscode-neovim.ctrlKeysForInsertMode": [],
@@ -105,4 +105,9 @@
     "rust-analyzer.testExplorer": true,
     "update.mode": "none",
     "editor.autoClosingQuotes": "never",
+    "editor.inlayHints.enabled": "off",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
 }
