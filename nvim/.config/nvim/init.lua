@@ -74,6 +74,9 @@ autocmd FileType markdown nnoremap <buffer> <leader>f :!mdformat --wrap 80 %<CR>
 " Run / execute current file
 autocmd FileType python nnoremap <buffer> <leader>e :!LOCAL=1 python % <CR>
 
+" Remove trailing whitespace (cs = clean space)
+nnoremap <leader>cs :%s/\s\+$//<CR>
+
 
 call plug#begin()
 Plug 'https://github.com/nvim-telescope/telescope.nvim'
@@ -97,11 +100,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
         vim.highlight.on_yank()
     end,
-})
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-    desc = "Remove trailing whitespace before saving",
-    pattern = {"*"},
-    command = [[%s/\s\+$\\e]],
 })
 
 vim.treesitter.language.add('python')
@@ -147,7 +145,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<leader>lR', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<leader>lR', vim.lsp.buf.rename, opts) -- LSP Rename
   end,
 })
 
@@ -193,9 +191,9 @@ require('telescope').setup({
     },
 })
 telescope_builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>tp', telescope_builtin.find_files, {})  -- fuzzy find files
-vim.keymap.set('n', '<leader>tg', telescope_builtin.live_grep, {})   -- grep
-vim.keymap.set('n', '<leader>tw', telescope_builtin.grep_string, {})   -- grep for word under cursor
+vim.keymap.set('n', '<leader>p', telescope_builtin.find_files, {})  -- fuzzy find files
+vim.keymap.set('n', '<leader>g', telescope_builtin.live_grep, {})   -- grep
+vim.keymap.set('n', '<leader>w', telescope_builtin.grep_string, {})   -- grep for word under cursor
 vim.keymap.set('n', '<leader>gs', telescope_builtin.git_status, {}) -- git status
 vim.keymap.set('n', '<leader>gc', telescope_builtin.git_commits, {})    -- git commits
 vim.keymap.set('n', '<leader>lr', telescope_builtin.lsp_references, {})    -- LSP references
@@ -204,12 +202,11 @@ local partial_func = function(func, opts)
         func(opts)
     end
 end
-vim.keymap.set('n', '<leader>lb', partial_func(telescope_builtin.lsp_document_symbols, {symbols = {"function","class","method"}}), {})    -- bread-crumbs
+vim.keymap.set('n', '<leader>ls', partial_func(telescope_builtin.lsp_document_symbols, {symbols = {"function","class","method"}}), {})    -- LSP symbols
 
 require('autosave').setup()
 
 -- mini plugin config
-require('mini.comment').setup() -- Comment/uncomment code (gcc, gc in visual)
 require('mini.fuzzy').setup()
 require('mini.cursorword').setup() -- Automatic highlighting of word under cursor
 require('mini.trailspace').setup() -- highlight trailing whitespace
