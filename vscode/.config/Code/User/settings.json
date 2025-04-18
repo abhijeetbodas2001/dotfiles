@@ -4,9 +4,6 @@
         "19": "linux",
         "053": "linux"
     },
-
-    // UI customizations
-    "terminal.integrated.fontSize": 16,
     "terminal.integrated.fontFamily": "Delugia, monospace",
     "editor.fontFamily": "Delugia, monospace",
     "editor.codeLensFontFamily": "Delugia, monospace",
@@ -94,8 +91,7 @@
     "security.workspace.trust.banner": "never",
     "security.workspace.trust.enabled": false,
     "security.workspace.trust.emptyWindow": false,
-    "window.menuBarVisibility": "toggle",
-    "python.defaultInterpreterPath": "~/code/.venv/bin/python",
+    "python.defaultInterpreterPath": "/home/apb/code/.venv",
     "C_Cpp.intelliSenseEngine": "disabled",
     "clangd.path": "/home/apb/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/19.1.2/clangd_19.1.2/bin/clangd",
     "makefile.configureOnOpen": false,
@@ -110,4 +106,93 @@
         "default": "right",
         "jupyter-notebook": "left"
     },
+    "dataWrangler.columnInsights.displayOnOpen": false,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "rust-analyzer.numThreads": 4,
+    "rust-analyzer.cachePriming.numThreads": 4,
+    "rust-analyzer.cargo.extraEnv": {
+        "RUST_TEST_THREADS": 4,
+        "CARGO_BUILD_JOBS": 4,
+    },
+    "rust-analyzer.runnables.extraEnv": null,
+
+    // Vim settings
+    "vim.useSystemClipboard": true,
+    // j/k over folds should not open the fold
+    "vim.foldfix": true,
+    "vim.handleKeys": {
+        "<C-p>": false,
+        "<C-b>": false,
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "vim.normalModeKeyBindings": [
+        // Git
+        {
+            "before": ["]", "c"],
+            "commands": [
+                "workbench.action.editor.nextChange",
+            ],
+            "silent": true
+        },
+        {
+            "before": ["[", "c"],
+            "commands": [
+                "workbench.action.editor.previousChange",
+            ],
+            "silent": true
+        },
+
+        // LSP
+        {
+            "before": ["K"],
+            "commands": [
+                "editor.action.showHover",
+            ],
+            "silent": true
+        },
+
+        // Folds
+        {
+            "before": ["zo"],
+            "commands": [
+                "editor.unfold",
+            ],
+            "silent": true
+        },
+        {
+            "before": ["zc"],
+            "commands": [
+                "editor.fold",
+            ],
+            "silent": true
+        },
+        {
+            "before": ["za"],
+            "commands": [
+                "editor.toggleFold",
+            ],
+            "silent": true
+        },
+        {
+            "before": ["zR"],
+            "commands": [
+                "editor.unfoldAll",
+            ],
+            "silent": true
+        },
+        {
+            "before": ["zM"],
+            "commands": [
+                "editor.foldAll",
+            ],
+            "silent": true
+        },
+    ],
+
+    "workbench.reduceMotion": "on",
+    "rust-analyzer.checkOnSave": false,
+    "editor.fontSize": 13
 }

@@ -102,17 +102,25 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldlevel = 99 -- Start with all folds open
 vim.treesitter.language.add('python')
 vim.treesitter.language.add('bash')
 vim.treesitter.language.add('markdown')
 vim.treesitter.language.add('lua')
 vim.treesitter.language.add('java')
+vim.treesitter.language.add('rust')
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
+  },
+  fold = {
+      enable = true,
   }
 })
+
 
 require('onedark').setup {
   style = 'darker',
@@ -129,6 +137,21 @@ require('onedark').setup {
   },
 }
 vim.cmd([[colorscheme onedark]])
+
+local lspconfig = require('lspconfig')
+local configs = require('lspconfig.configs')
+
+configs.red_knot = {
+  default_config = {
+    cmd = { '/home/apb/code/ruff/target/debug/red_knot', 'server' },
+    root_dir = lspconfig.util.root_pattern('pyproject.toml', '.git'),
+    filetypes = { 'python' },
+  },
+}
+
+lspconfig.red_knot.setup {}
+
+lspconfig.rust_analyzer.setup{}
 
 require('lspconfig').pyright.setup({
   capabilities = vim.lsp.protocol.make_client_capabilities(),

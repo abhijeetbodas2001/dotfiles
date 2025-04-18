@@ -46,3 +46,5 @@
     merge-conflict-theirs-diff-header-style = yellow bold
     merge-conflict-theirs-diff-header-decoration-style = "#3e3e43" box
 
+[rebase]
+	autostash = true
