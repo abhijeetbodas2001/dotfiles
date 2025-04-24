@@ -39,10 +39,10 @@
 
     // language specific settings
     "jupyter.askForKernelRestart": false,
-    "python.languageServer": "Pylance",
+    "python.languageServer": "None",
     "python.analysis.completeFunctionParens": true,
     "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.autoClosingBrackets": "never"
     },
     "[markdown]": {
@@ -112,8 +112,8 @@
     "rust-analyzer.numThreads": 4,
     "rust-analyzer.cachePriming.numThreads": 4,
     "rust-analyzer.cargo.extraEnv": {
-        "RUST_TEST_THREADS": 4,
-        "CARGO_BUILD_JOBS": 4,
+        "RUST_TEST_THREADS": 2,
+        "CARGO_BUILD_JOBS": 2,
     },
     "rust-analyzer.runnables.extraEnv": null,
 
@@ -194,5 +194,9 @@
 
     "workbench.reduceMotion": "on",
     "rust-analyzer.checkOnSave": false,
-    "editor.fontSize": 13
+    "editor.fontSize": 13,
+    "debug.allowBreakpointsEverywhere": true,
+    "ruff.path": [
+        "/home/apb/code/ruff/target/debug/red_knot"
+    ]
 }
