@@ -112,35 +112,26 @@ vim.wo.foldlevel = 99
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
 -- Enabling this from the above config does not work for some reason
+-- so explicitly enable and set the keymaps
 inc_selection = require('nvim-treesitter.incremental_selection')
-vim.keymap.set("n", "<Enter>", inc_selection.node_incremental)
-vim.keymap.set("v", "<Enter>", inc_selection.node_incremental)
-vim.keymap.set("v", "\\", inc_selection.node_decremental)
+vim.keymap.set("n", "\\", inc_selection.node_incremental)
+vim.keymap.set("v", "\\", inc_selection.node_incremental)
+vim.keymap.set("v", "|", inc_selection.node_decremental)
 
 ts_utils = require("nvim-treesitter.ts_utils")
-local function fold_siblings()
-    -- FIXME: DOES NOT WORK
-  local ts_utils = require'nvim-treesitter.ts_utils'
+
+local function goto_parent()
   local current_node = ts_utils.get_node_at_cursor()
+  local parent = current_node:parent()
 
-  if not current_node then
-    return
+  -- Some nodes are useless as far as jumping is converned
+  -- Making sure that the range changes skips these nodes
+  while parent and parent:range() == current_node:range() do
+      parent = parent:parent()
   end
-
-  local parent_node = current_node:parent()
-  if not parent_node then
-    return
-  end
-
-  local children = ts_utils.get_named_children(parent_node)
-  for _, child in ipairs(children) do
-    if child ~= current_node then
-        local start_row, start_col, end_row, end_col = child:range()
-        vim.cmd(string.format("normal! %dG%dGzf", start_row + 1, end_row + 1))
-    end
-  end
+  ts_utils.goto_node(parent)
 end
-vim.keymap.set("n", "<leader>fc", fold_siblings)
+vim.keymap.set("n", "<Enter>", goto_parent)
 
 
 
@@ -171,7 +162,7 @@ configs.red_knot = {
   },
 }
 
-lspconfig.red_knot.setup {}
+-- lspconfig.red_knot.setup {}
 
 lspconfig.rust_analyzer.setup({
     settings = {
