@@ -1,0 +1,17 @@
+[window]
+dimensions = {columns= 8000, lines = 800}   # very large values == full screen
+decorations = "none"
+[font]
+size = 10
+  [font.normal]
+    family = "Delugia"  # Replace with your desired font family
+    style = "Regular"
+  [font.bold]
+    family = "Delugia"
+    style = "Bold"
+  [font.italic]
+    family = "Delugia"
+    style = "Italic"
+[scrolling]
+  history = 100000
+
