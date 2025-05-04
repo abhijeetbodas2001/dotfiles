@@ -57,6 +57,9 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
+" the later is hard to reach
+nnoremap <A-j> <C-6>
+
 " enable "copy mode"  sc = Settings Copy
 nnoremap <leader>sc :set nonumber<CR>:set norelativenumber<CR>:set mouse=<CR>
 " disable "copy mode" sc = Settings Copy (disable)
