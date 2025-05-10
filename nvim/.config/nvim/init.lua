@@ -26,6 +26,7 @@ set nocompatible
 set showcmd
 set showmode
 set history=1000
+set cmdheight=0
 
 " Use ripgrep while doing :grep
 if executable("rg")
@@ -83,6 +84,7 @@ Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/navarasu/onedark.nvim'
 Plug 'https://github.com/echasnovski/mini.nvim'
 Plug 'https://github.com/theprimeagen/vim-be-good'
+Plug 'https://github.com/nvim-lualine/lualine.nvim'
 call plug#end()
 ]])
 
@@ -96,6 +98,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank()
     end,
 })
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    -- TreeSitter highlighting is good, disable LSP highlighting
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+});
 
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {"markdown", "python", "rust", "lua", "yaml", "toml", "json"},
@@ -263,6 +272,17 @@ require('autosave').setup()
 
 -- mini plugin config
 require('mini.fuzzy').setup()
-require('mini.cursorword').setup() -- Automatic highlighting of word under cursor
+require('mini.cursorword').setup() -- Automatic underline of word under cursor
 require('mini.trailspace').setup() -- highlight trailing whitespace
+
+require('lualine').setup {
+    options = {
+        theme = 'onedark', -- Choose your preferred theme
+    },
+    sections = {
+        lualine_c = {
+            { 'filename' },
+        },
+    },
+}
 
