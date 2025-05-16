@@ -69,6 +69,7 @@ nnoremap <leader>sC :set number<CR>:set relativenumber<CR>:set mouse=a<CR>
 " Format current file
 autocmd FileType python nnoremap <buffer> <leader>f :!ruff format % && ruff check --fix --select I %<CR>
 autocmd FileType markdown nnoremap <buffer> <leader>f :!mdformat --wrap 80 %<CR>
+autocmd FileType rust nnoremap <buffer> <leader>f :!rustfmt %<CR>
 
 " Run / execute current file
 autocmd FileType python nnoremap <buffer> <leader>e :!LOCAL=1 python % <CR>
@@ -98,13 +99,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank()
     end,
 })
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    -- TreeSitter highlighting is good, disable LSP highlighting
-    client.server_capabilities.semanticTokensProvider = nil
-  end,
-});
 
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {"markdown", "python", "rust", "lua", "yaml", "toml", "json"},
@@ -281,7 +275,11 @@ require('lualine').setup {
     },
     sections = {
         lualine_c = {
-            { 'filename' },
+            { 'lsp_status' },
+            {
+                'filename',
+                path = 1,
+            },
         },
     },
 }
