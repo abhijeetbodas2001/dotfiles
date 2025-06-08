@@ -241,13 +241,17 @@ require('gitsigns').setup{
   end
 }
 
-require('telescope').setup({
-      defaults = {
-      layout_config = {
-            horizontal = { width = 0.9, preview_width = 100 },
+require('telescope').setup{
+  defaults = {
+    layout_config = {
+      horizontal = {
+        width = 0.98,
+        preview_width = 0.5,  -- Split equally between picker and preview
       },
     },
-})
+  },
+}
+
 telescope_builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>p', telescope_builtin.find_files, {})  -- fuzzy find files
 require("multigrep").setup()
