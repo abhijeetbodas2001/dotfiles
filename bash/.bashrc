@@ -44,7 +44,7 @@ export GEM_HOME="$HOME/rubygems"
 export PATH="/var/lib/flatpak/exports/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="/home/apb/bin:$PATH"
-export PATH="/home/apb/bin/pypy3.10-v7.3.17-linux64/bin:$PATH"
+export PATH="/home/apb/bin/nvim-linux-x86_64/bin:$PATH"
 
 
 . "$HOME/.local/bin/env"
