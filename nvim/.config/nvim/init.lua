@@ -59,7 +59,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 " the later is hard to reach
-nnoremap <A-j> <C-6>
+nnoremap <A-i> <C-6>
 
 " enable "copy mode"  sc = Settings Copy
 nnoremap <leader>sc :set nonumber<CR>:set norelativenumber<CR>:set mouse=<CR>
@@ -68,8 +68,12 @@ nnoremap <leader>sC :set number<CR>:set relativenumber<CR>:set mouse=a<CR>
 
 " Format current file
 autocmd FileType python nnoremap <buffer> <leader>f :!ruff format % && ruff check --fix --select I %<CR>
+
+autocmd FileType markdown set shiftwidth=2 tabstop=2
 autocmd FileType markdown nnoremap <buffer> <leader>f :!mdformat --wrap 80 %<CR>
+
 autocmd FileType rust nnoremap <buffer> <leader>f :!rustfmt %<CR>
+
 
 " Run / execute current file
 autocmd FileType python nnoremap <buffer> <leader>e :!LOCAL=1 python % <CR>
@@ -92,9 +96,10 @@ call plug#end()
 
 
 -- Auto commands
+vim.api.nvim_create_augroup("test", {clear=true})
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = "Highlight text which was yanked",
-    group = vim.api.nvim_create_augroup("test", {clear=false}),
+    group = "test",
     callback = function()
         vim.highlight.on_yank()
     end,
@@ -138,7 +143,17 @@ local function goto_parent()
   ts_utils.goto_node(parent)
 end
 vim.keymap.set("n", "<Enter>", goto_parent)
-
+-- Unset it for qfixlist buffers
+-- In a "quickfix" buffer, Enter is used to go to the location represented by
+-- that entry. Don't remap in such buffers.
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = "test",
+    callback = function()
+        if vim.bo.filetype == 'qf' then
+            vim.cmd([[nnoremap <buffer> <Enter> <nop>]])
+        end
+    end,
+})
 
 
 require('onedark').setup {
@@ -193,7 +208,7 @@ require('lspconfig').pyright.setup({
 })
 require'lspconfig'.clangd.setup{}
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  group = "test",
   callback = function(ev)
     -- Only enable the keybindings in the current buffer
     -- (so that, default vim keybindings can be used on buffers where LSP is not attached)
