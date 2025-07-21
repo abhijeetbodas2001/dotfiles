@@ -195,8 +195,8 @@ lspconfig.rust_analyzer.setup({
             },
             cargo = {
                 extraEnv = {
-                    RUST_TEST_THREADS = 2,
-                    CARGO_BUILD_JOBS = 2,
+                    RUST_TEST_THREADS = "2",
+                    CARGO_BUILD_JOBS = "2",
                 }
             }
         }
