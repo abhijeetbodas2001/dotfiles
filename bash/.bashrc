@@ -19,7 +19,6 @@ set -o vi
 # Use vim everywhere!
 export EDITOR=vim
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Make concurrent bash history updates work correctly
 shopt -s histappend
@@ -38,8 +37,8 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
     . /usr/share/bash-completion/completions/git
 fi
 
-# FZF shell magic
-eval "$(fzf --bash)"
+# Source brew stuff if required
+[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Modifying the $PATH variable
 export GEM_HOME="$HOME/rubygems"
@@ -50,3 +49,6 @@ export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 # . "$HOME/.local/bin/env"
 # . "$HOME/.cargo/env"
 export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
+
+# FZF shell magic, has to be after fzf has been added to PATH
+eval "$(fzf --bash)"
