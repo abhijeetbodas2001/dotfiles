@@ -19,6 +19,8 @@ set -o vi
 # Use vim everywhere!
 export EDITOR=vim
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Make concurrent bash history updates work correctly
 shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
@@ -28,8 +30,8 @@ HISTSIZE=1000000000
 HISTFILESIZE=100000000
 HISTCONTROL=$HISTCONTROL:ignoredups
 
-# Make sound input work
-amixer set "Capture" 25% > /dev/null
+# Make sound input work (not needed on MacOS)
+# amixer set "Capture" 25% > /dev/null
 
 # Source git command completions
 if [ -f /usr/share/bash-completion/completions/git ]; then
@@ -41,12 +43,10 @@ eval "$(fzf --bash)"
 
 # Modifying the $PATH variable
 export GEM_HOME="$HOME/rubygems"
-export PATH="/var/lib/flatpak/exports/bin:$PATH"
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="/home/apb/bin:$PATH"
-export PATH="/home/apb/bin/nvim-linux-x86_64/bin:$PATH"
+export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 
 
-. "$HOME/.local/bin/env"
-. "$HOME/.cargo/env"
-
+# . "$HOME/.local/bin/env"
+# . "$HOME/.cargo/env"
+export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"

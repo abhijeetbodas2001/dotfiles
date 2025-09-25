@@ -13,13 +13,8 @@ keybinds clear-defaults=true {
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt j" { MoveFocus "down"; }
         bind "Alt k" { MoveFocus "up"; }
-        bind "Alt m" {
-            LaunchOrFocusPlugin "session-manager" {
-                floating true
-                move_to_focused_tab true
-            }
-        }
-        bind "Alt n" { NewPane; }
+        bind "Alt n" { NewPane "Right"; }
+        bind "Alt m" { NewPane "Down"; }
         bind "Alt o" { NextSwapLayout; }
         bind "Alt s" { EditScrollback; }
         bind "Alt t" { NewTab; }
