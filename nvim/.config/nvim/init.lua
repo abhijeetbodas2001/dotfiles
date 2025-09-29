@@ -67,10 +67,10 @@ nnoremap <leader>sc :set nonumber<CR>:set norelativenumber<CR>:set mouse=<CR>
 nnoremap <leader>sC :set number<CR>:set relativenumber<CR>:set mouse=a<CR>
 
 " Format current file
-autocmd FileType python nnoremap <buffer> <leader>f :!ruff format % && ruff check --fix --select I %<CR>
+autocmd FileType python nnoremap <buffer> <leader>f :!uv tool run ruff format % && uv tool run ruff check --fix --select I %<CR>
 
 autocmd FileType markdown set shiftwidth=2 tabstop=2
-autocmd FileType markdown nnoremap <buffer> <leader>f :!mdformat --wrap 80 %<CR>
+autocmd FileType markdown nnoremap <buffer> <leader>f :!uv tool run mdformat --wrap 80 %<CR>
 
 autocmd FileType rust nnoremap <buffer> <leader>f :!rustfmt %<CR>
 

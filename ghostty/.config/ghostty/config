@@ -1,0 +1,14 @@
+initial-command = /bin/bash
+command = /bin/bash
+font-family = Delugia Mono
+font-size = 14
+maximize = true
+background = black
+foreground = white
+
+# make Alt work for Zellij
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+
+

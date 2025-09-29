@@ -43,6 +43,7 @@ fi
 # Modifying the $PATH variable
 export GEM_HOME="$HOME/rubygems"
 export PATH="/home/apb/bin:$PATH"
+export PATH="/home/abhijeet/bin:$PATH"
 export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 
 
