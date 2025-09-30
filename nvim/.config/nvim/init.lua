@@ -189,25 +189,10 @@ vim.cmd([[colorscheme onedark]])
 --         }
 --     }
 -- })
---
--- vim.lsp.config['pyright'].setup({
---   capabilities = vim.lsp.protocol.make_client_capabilities(),
--- })
--- vim.lsp.config['clangd'].setup{}
--- vim.api.nvim_create_autocmd('LspAttach', {
---   group = "test",
---   callback = function(ev)
---     -- Only enable the keybindings in the current buffer
---     -- (so that, default vim keybindings can be used on buffers where LSP is not attached)
---     local opts = { buffer = ev.buf }
---     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
---     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
---     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
---     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
---     vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, opts)
---     vim.keymap.set('n', '<leader>lR', vim.lsp.buf.rename, opts) -- LSP Rename
---   end,
--- })
+
+vim.lsp.config['pyright'].setup({
+  capabilities = vim.lsp.protocol.make_client_capabilities(),
+})
 
 vim.cmd([[:highlight DiffAdd guifg=#a4cf69]])
 vim.cmd([[:highlight DiffChange guifg=#63c1e6]])
