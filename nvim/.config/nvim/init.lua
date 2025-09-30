@@ -85,6 +85,7 @@ Plug 'https://github.com/lewis6991/gitsigns.nvim'
 Plug 'https://github.com/0x00-ketsu/autosave.nvim'
 Plug 'https://github.com/nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Plug 'https://github.com/nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'https://github.com/neovim/nvim-lspconfig'
 Plug 'https://github.com/navarasu/onedark.nvim'
 Plug 'https://github.com/echasnovski/mini.nvim'
 Plug 'https://github.com/theprimeagen/vim-be-good'
@@ -171,6 +172,10 @@ require('onedark').setup {
 }
 vim.cmd([[colorscheme onedark]])
 
+-- Jump diagnostics
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
+
 
 -- vim.lsp.config['rust_analyzer'].setup({
 --     settings = {
@@ -190,9 +195,7 @@ vim.cmd([[colorscheme onedark]])
 --     }
 -- })
 
-vim.lsp.config['pyright'].setup({
-  capabilities = vim.lsp.protocol.make_client_capabilities(),
-})
+vim.lsp.enable('pyright')
 
 vim.cmd([[:highlight DiffAdd guifg=#a4cf69]])
 vim.cmd([[:highlight DiffChange guifg=#63c1e6]])
