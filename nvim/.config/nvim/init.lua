@@ -177,25 +177,46 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Next diagnostic" }
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
 
 
--- vim.lsp.config['rust_analyzer'].setup({
---     settings = {
---         ["rust-analyzer"] = {
---             numThreads = 2,
---             checkOnSave = false,
---             cachePriming = {
---                 numThreads = 2
---             },
---             cargo = {
---                 extraEnv = {
---                     RUST_TEST_THREADS = "2",
---                     CARGO_BUILD_JOBS = "2",
---                 }
---             }
---         }
---     }
--- })
+-- Rust
+vim.lsp.config['rust_analyzer'] = {
+    settings = {
+        ["rust-analyzer"] = {
+            numThreads = 2,
+            checkOnSave = false,
+            cachePriming = {
+                numThreads = 2
+            },
+            cargo = {
+                extraEnv = {
+                    RUST_TEST_THREADS = "2",
+                    CARGO_BUILD_JOBS = "2",
+                }
+            }
+        }
+    }
+}
 
-vim.lsp.enable('pyright')
+-- Python
+vim.lsp.enable('ty')
+-- vim.lsp.enable('pyright')
+
+-- LSP keybinds
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Only enable the keybindings in the current buffer
+    -- (so that, default vim keybindings can be used on buffers where LSP is not attached)
+
+    local opts = { buffer = ev.buf }
+
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<leader>lR', vim.lsp.buf.rename, opts) -- LSP Rename
+  end,
+})
 
 vim.cmd([[:highlight DiffAdd guifg=#a4cf69]])
 vim.cmd([[:highlight DiffChange guifg=#63c1e6]])
