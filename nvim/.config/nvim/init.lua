@@ -178,23 +178,16 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Previous diagnosti
 
 
 -- Rust
-vim.lsp.config['rust_analyzer'] = {
-    settings = {
-        ["rust-analyzer"] = {
-            numThreads = 2,
-            checkOnSave = false,
-            cachePriming = {
-                numThreads = 2
-            },
-            cargo = {
-                extraEnv = {
-                    RUST_TEST_THREADS = "2",
-                    CARGO_BUILD_JOBS = "2",
-                }
-            }
-        }
+vim.lsp.config('rust_analyzer', {
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = false;
+      }
     }
-}
+  }
+})
+vim.lsp.enable('rust_analyzer')
 
 -- Python
 vim.lsp.enable('ty')

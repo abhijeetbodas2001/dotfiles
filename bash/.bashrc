@@ -48,7 +48,7 @@ export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 
 
 # . "$HOME/.local/bin/env"
-# . "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
 
 # FZF shell magic, has to be after fzf has been added to PATH
