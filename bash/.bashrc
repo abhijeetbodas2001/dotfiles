@@ -53,6 +53,7 @@ export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
 
 # FZF shell magic, has to be after fzf has been added to PATH
 eval "$(fzf --bash)"
-eval "$(mcfly init bash)"
-export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=2
+
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"

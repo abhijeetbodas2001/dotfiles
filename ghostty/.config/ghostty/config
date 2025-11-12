@@ -1,7 +1,6 @@
-initial-command = /bin/bash
-command = /bin/bash
 font-family = Delugia Mono
 font-size = 14
+font-thicken = true
 maximize = true
 background = black
 foreground = white
