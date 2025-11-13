@@ -1,3 +1,4 @@
 add_newline = false
-format = """$hostname$directory$git_branch$character"""
+format = """$ssh_symbol$hostname:$directory $git_branch $python$character"""
+
 
