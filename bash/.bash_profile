@@ -5,4 +5,3 @@ if [ -f "$HOME/.cargo/env" ]; then
 fi
 
 
-. "$HOME/.atuin/bin/env"
