@@ -1,0 +1,23 @@
+## date format used, either "us" or "uk"
+dialect = "uk"
+
+## default timezone to use when displaying time
+## either "l", "local" to use the system's current local timezone, or an offset
+## from UTC in the format of "<+|->H[H][:M[M][:S[S]]]"
+## for example: "+9", "-05", "+03:30", "-01:23:45", etc.
+timezone = "+5:30"
+
+## Defaults to true. If enabled, upon hitting enter Atuin will immediately execute the command. Press tab to return to the shell and edit.
+# This applies for new installs. Old installs will keep the old behaviour unless configured otherwise.
+enter_accept = false
+
+## Defaults to false. If enabled, when triggered after &&, || or |, Atuin will complete commands to chain rather than replace the current line.
+command_chaining = true
+
+## Defaults to "emacs".  This specifies the keymap on the startup of `atuin
+## search`.  If this is set to "auto", the startup keymap mode in the Atuin
+## search is automatically selected based on the shell's keymap where the
+## keybinding is defined.  If this is set to "emacs", "vim-insert", or
+## "vim-normal", the startup keymap mode in the Atuin search is forced to be
+## the specified one.
+keymap_mode = "vim-normal"
