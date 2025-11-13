@@ -56,9 +56,11 @@ eval "$(fzf --bash)"
 
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+
+. "$HOME/.atuin/bin/env"
 # Bind ctrl-r but not up arrow
 eval "$(atuin init bash --disable-up-arrow)"
+
 eval "$(starship init bash)"
 
 
-. "$HOME/.atuin/bin/env"
