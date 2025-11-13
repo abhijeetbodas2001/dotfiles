@@ -57,7 +57,7 @@ eval "$(fzf --bash)"
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 # Bind ctrl-r but not up arrow
-eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(atuin init bash --disable-up-arrow)"
 eval "$(starship init bash)"
 
 
