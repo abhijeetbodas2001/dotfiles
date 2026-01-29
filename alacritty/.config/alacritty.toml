@@ -1,16 +1,16 @@
 [window]
-dimensions = {columns= 8000, lines = 800}   # very large values == full screen
-decorations = "none"
+decorations = "Full"
+startup_mode = "Maximized"
 [font]
-size = 10
+size = 14
   [font.normal]
-    family = "Delugia"  # Replace with your desired font family
+    family = "Delugia Mono"  # Replace with your desired font family
     style = "Regular"
   [font.bold]
-    family = "Delugia"
+    family = "Delugia Mono"
     style = "Bold"
   [font.italic]
-    family = "Delugia"
+    family = "Delugia Mono"
     style = "Italic"
 [scrolling]
   history = 100000

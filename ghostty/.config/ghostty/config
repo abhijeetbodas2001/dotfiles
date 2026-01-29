@@ -1,3 +1,4 @@
+command = /bin/bash
 font-family = Delugia Mono
 font-size = 14
 font-thicken = true
