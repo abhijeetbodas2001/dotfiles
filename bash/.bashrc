@@ -40,6 +40,13 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
     . /usr/share/bash-completion/completions/git
 fi
 
+# brew install git bash-completion
+# then:
+if [ -f /opt/homebrew/etc/bash_completion ]; then
+    . /opt/homebrew/etc/bash_completion
+fi
+
+
 # Source brew stuff if required
 [ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 

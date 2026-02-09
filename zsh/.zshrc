@@ -38,3 +38,14 @@ path+=('/Users/apb/bin')
 
 
 eval "$(starship init zsh)"
+
+# >>> RIPPLING_MANAGED_ZSH_HISTORY >>>
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=200000
+export SAVEHIST=200000
+setopt EXTENDED_HISTORY
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+# <<< RIPPLING_MANAGED_ZSH_HISTORY <<<
+
+. "$HOME/.local/bin/env"

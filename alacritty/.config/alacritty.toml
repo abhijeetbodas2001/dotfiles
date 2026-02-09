@@ -1,10 +1,11 @@
 [window]
 decorations = "Full"
 startup_mode = "Maximized"
+option_as_alt = "Both"
 [font]
 size = 14
   [font.normal]
-    family = "Delugia Mono"  # Replace with your desired font family
+    family = "Delugia Mono"
     style = "Regular"
   [font.bold]
     family = "Delugia Mono"

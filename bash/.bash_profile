@@ -5,3 +5,5 @@ if [ -f "$HOME/.cargo/env" ]; then
 fi
 
 
+
+. "$HOME/.local/bin/env"
