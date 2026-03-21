@@ -14,6 +14,8 @@ keybinds clear-defaults=true {
         bind "Alt o" { NextSwapLayout; }
         bind "Alt s" { EditScrollback; }
         bind "Alt t" { NewTab; }
+        bind "Alt =" { Resize "right"; }
+        bind "Alt -" { Resize "left"; }
     }
 }
 
