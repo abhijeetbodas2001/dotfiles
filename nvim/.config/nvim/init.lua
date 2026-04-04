@@ -257,6 +257,7 @@ require("gitsigns").setup({
 		map("n", "<leader>gh", gs.toggle_deleted) -- github (like diff)
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>") -- "in" and "around" hunk
 	end,
+    current_line_blame = true
 })
 
 require("telescope").setup({
@@ -270,13 +271,14 @@ require("telescope").setup({
 	},
 })
 
-telescope_builtin = require("telescope.builtin")
+local telescope_builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>p", telescope_builtin.find_files, {}) -- fuzzy find files
 require("multigrep").setup()
 vim.keymap.set("n", "<leader>rw", telescope_builtin.grep_string, {}) -- grep for word under cursor
 vim.keymap.set("n", "<leader>gs", telescope_builtin.git_status, {}) -- git status
 vim.keymap.set("n", "<leader>gc", telescope_builtin.git_commits, {}) -- git commits
 vim.keymap.set("n", "<leader>lr", telescope_builtin.lsp_references, {}) -- LSP references
+vim.keymap.set('n', '<leader>b', telescope_builtin.buffers, {}) -- Open buffers
 local partial_func = function(func, opts)
 	return function()
 		func(opts)
