@@ -8,6 +8,7 @@ alias cc='cd $(find ~/repos/ -maxdepth 1 | fzf)'
 alias sv='source .venv/bin/activate'
 alias sc='conda activate abhijeet_env_dev'
 alias clear='/usr/bin/clear'
+alias zc='zellij attach $(zellij list-sessions -s | fzf)'   # zellij connect
 function rgb()
 {
     rg --pretty "$@" | bat

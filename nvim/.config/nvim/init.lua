@@ -177,6 +177,7 @@ require("onedark").setup({
 	},
 	highlights = {
 		["@comment"] = { fg = "$green" },
+		["@lsp.type.comment.rust"] = { fg = "$green" },
 		["@string"] = { fg = "$orange" },
 		["@variable"] = { fg = "$white" },
 	},
