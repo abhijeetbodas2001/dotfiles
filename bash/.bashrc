@@ -40,10 +40,9 @@ if [ -f /usr/share/bash-completion/completions/git ]; then
     . /usr/share/bash-completion/completions/git
 fi
 
-# brew install git bash-completion
-# then:
-if [ -f /opt/homebrew/etc/bash_completion ]; then
-    . /opt/homebrew/etc/bash_completion
+# Homebrew bash-completion@2
+if [ -r /opt/homebrew/etc/profile.d/bash_completion.sh ]; then
+    . /opt/homebrew/etc/profile.d/bash_completion.sh
 fi
 
 
@@ -52,14 +51,12 @@ fi
 
 # Modifying the $PATH variable
 export GEM_HOME="$HOME/rubygems"
-export PATH="/home/apb/bin:$PATH"
-export PATH="/home/abhijeet/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 
 
 # . "$HOME/.local/bin/env"
 . "$HOME/.cargo/env"
-export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
 
 # FZF shell magic, has to be after fzf has been added to PATH
 eval "$(fzf --bash)"
@@ -68,5 +65,4 @@ eval "$(fzf --bash)"
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 
 eval "$(starship init bash)"
-
 

@@ -258,7 +258,7 @@ require("gitsigns").setup({
 		map("n", "<leader>gh", gs.toggle_deleted) -- github (like diff)
 		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>") -- "in" and "around" hunk
 	end,
-    current_line_blame = true
+	current_line_blame = true,
 })
 
 require("telescope").setup({
@@ -279,7 +279,7 @@ vim.keymap.set("n", "<leader>rw", telescope_builtin.grep_string, {}) -- grep for
 vim.keymap.set("n", "<leader>gs", telescope_builtin.git_status, {}) -- git status
 vim.keymap.set("n", "<leader>gc", telescope_builtin.git_commits, {}) -- git commits
 vim.keymap.set("n", "<leader>lr", telescope_builtin.lsp_references, {}) -- LSP references
-vim.keymap.set('n', '<leader>b', telescope_builtin.buffers, {}) -- Open buffers
+vim.keymap.set("n", "<leader>b", telescope_builtin.buffers, {}) -- Open buffers
 local partial_func = function(func, opts)
 	return function()
 		func(opts)
@@ -339,7 +339,7 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 
 cmp.setup({
-    preselect = cmp.PreselectMode.None,
+	preselect = cmp.PreselectMode.None,
 	formatting = {
 		fields = { "abbr", "kind" }, -- no source text
 	},
